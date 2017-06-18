@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { StatusBar, KeyboardAvoidingView } from 'react-native';
 
 import { Header } from '../components/Header';
@@ -16,11 +16,14 @@ const TEMP_CONVERSION_RATE = 0.7974;
 const TEMP_CONVERSION_DATE = new Date();
 
 class Home extends Component {
-  _handlePressBaseUrrency = () => {
-    console.log('press');
+  static propstype = {
+    navigation: PropTypes.object,
   }
-  _handlePressQuoteUrrency = () => {
-    console.log('press quote');
+  _handlePressBaseCurrency = () => {
+    this.props.navigation.navigate('CurrencyList', { title: 'Base Currency'});
+  }
+  _handlePressQuoteCurrency = () => {
+    this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency'});
   }
   _handleTextChange = (text) => {
     console.log('handle text change!');
@@ -39,13 +42,13 @@ class Home extends Component {
         <KeyboardAvoidingView behavior="padding">
           <Logo />
           <InputWithButton 
-            onPress={this._handlePressBaseUrrency}
+            onPress={this._handlePressBaseCurrency}
             buttonText={TEMP_BASE_CURRENCY}
             defaultValue={TEMP_BASE_PRICE}
             keyboardType="numeric"
             onChange={this._handleTextChange}/>
           <InputWithButton 
-            onPress={this._handlePressQuoteUrrency}
+            onPress={this._handlePressQuoteCurrency}
             buttonText={TEMP_QUOTE_CURRENCY}
             editable={false}
             value={TEMP_QUOTE_PRICE}/>

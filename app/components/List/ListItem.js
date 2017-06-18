@@ -13,13 +13,15 @@ const ListItem = ({
     customIcon = null,
     iconBackground
 }) => (
-    <TouchableHighlight onPress={onPress} underlayColor={styles.$underlayColr}>
-        <View style={styles.row}>
-            <Text style={styles.text}>{text}</Text>
-            {selected ? <Icon checkmark={checkmark} visible={visible} iconBackground={iconBackground}/> : <Icon/>}
-            {customIcon}
-        </View>
-    </TouchableHighlight>
+  <TouchableHighlight onPress={onPress} underlayColor={styles.$underlayColor}>
+    <View style={styles.row}>
+      <Text style={styles.text}>{text}</Text>
+      {selected
+        ? <Icon visible={visible} checkmark={checkmark} iconBackground={iconBackground} />
+        : <Icon />}
+      {customIcon}
+    </View>
+  </TouchableHighlight>
 );
 
 ListItem.propTypes = {

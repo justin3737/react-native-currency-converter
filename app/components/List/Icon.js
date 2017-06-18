@@ -12,15 +12,17 @@ const Icon = ({ checkmark, visible, iconBackground }) => {
 
     if (iconBackground) {
         iconStyle.push({
-            backgroundColor: iconBackground
-        });
+            'backgroundColor': iconBackground,
+        })
     }
 
     return (
         <View style={iconStyle}>
-            { checkmark? <Image style={styles.checkIcon} resizeMode="contain" source={require('./images/check.png')}/> : null}
+            { checkmark ? 
+                <Image style={styles.checkIcon} resizeMode="contain" source={require('./images/check.png')}/> : null
+            }
         </View>
-    );
+    )
 };
 
 Icon.propTypes = {
