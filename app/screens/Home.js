@@ -32,7 +32,7 @@ class Home extends Component {
     console.log('handle swap currency!');
   }
   _handleOptionsPress = () => {
-    console.log('handle options press')
+    this.props.navigation.navigate('Options');
   }
   render() {
     return(
